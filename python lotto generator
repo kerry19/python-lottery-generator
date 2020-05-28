@@ -1,0 +1,27 @@
+import random
+
+l=[]
+m=[]
+while len(l) <5:
+    lotn=random.randint(0,50)
+    if lotn not in l:
+        l.append(lotn)
+print(l)
+for i in range(5):
+    mylot=int(input('Enter numbers: '))
+    while mylot > 50 or mylot <1 or mylot in m:
+        mylot=int(input('Enter numbers between 1 and 50: '))
+    m.append(mylot)
+count=0
+matched=[]
+for i in l:
+    for j in m:
+        if i == j:
+            count+=1
+            matched.append(i)
+if count ==5:
+    print('JACKPOT!')
+elif count == 0:
+    print('Sorry you matched no numbers :(')
+else:
+    print('You matched {} numbers.Your matched numbers were {} and lotto numbers were {}.'.format(count, matched, l))
